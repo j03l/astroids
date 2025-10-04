@@ -1,14 +1,16 @@
-import pygame
 import pygame.gfxdraw
 
 from circleshape import CircleShape
-from constants import SHOT_COLOUR, SHOT_RADIUS
+from constants import SHOT_COLOR, SHOT_RADIUS
 
 
 class Shot(CircleShape):
     def __init__(self, x, y):
         super().__init__(x, y, SHOT_RADIUS)
         self.play_sfx("fire")
+
+    def update(self, dt):
+        super().update(dt)
 
     def draw(self, screen):
         # pygame.draw.circle(
@@ -23,8 +25,5 @@ class Shot(CircleShape):
             int(self.position.x),
             int(self.position.y),
             int(self.radius),
-            pygame.Color(SHOT_COLOUR),
+            self._safe_color(SHOT_COLOR),
         )
-
-    def update(self, dt):
-        self.position += self.velocity * dt

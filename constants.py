@@ -14,7 +14,7 @@ PLAYER_SHOOT_SPEED = 500
 PLAYER_SHOOT_COOLDOWN = 0.3
 
 SHOT_RADIUS = 3
-SHOT_COLOUR = "white"
+SHOT_COLOR = "white"
 
 SOUND_EFFECTS = {
     "fire": "sfx/fire.wav",
