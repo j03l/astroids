@@ -1,5 +1,7 @@
 import pygame
 
+from constants import SOUND_EFFECTS
+
 
 class CircleShape(pygame.sprite.Sprite):
     """Base class for the shape of players and characters."""
@@ -27,3 +29,8 @@ class CircleShape(pygame.sprite.Sprite):
         if distance <= self.radius + circle.radius:
             return True
         return False
+
+    def play_sfx(self, sfx):
+        """Play a specific sound effect."""
+        sound = pygame.mixer.Sound(SOUND_EFFECTS[sfx])
+        sound.play()

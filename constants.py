@@ -15,3 +15,12 @@ PLAYER_SHOOT_COOLDOWN = 0.3
 
 SHOT_RADIUS = 3
 SHOT_COLOUR = "white"
+
+SOUND_EFFECTS = {
+    "fire": "sfx/fire.wav",
+    "b1": "sfx/bangSmall.wav",
+    "b2": "sfx/bangMedium.wav",
+    "b3": "sfx/bangLarge.wav",
+    "beat1": "sfx/beat1.wav",
+    "beat2": "sfx/beat2.wav",
+}
