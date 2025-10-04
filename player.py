@@ -1,4 +1,5 @@
 import pygame
+from pygame import Color, gfxdraw
 
 from circleshape import CircleShape
 from constants import (
@@ -31,9 +32,10 @@ class Player(CircleShape):
         return [a, b, c]
 
     def draw(self, screen):
-        pygame.draw.polygon(
-            surface=screen, color="white", points=self.triangle(), width=2
-        )
+        # pygame.draw.polygon(
+        #     surface=screen, color="white", points=self.triangle(), width=2
+        # )
+        gfxdraw.filled_polygon(screen, self.triangle(), Color("white"))
 
     def rotate(self, dt):
         self.rotation += PLAYER_TURN_SPEED * dt
@@ -44,7 +46,6 @@ class Player(CircleShape):
 
     def shoot(self, dt):
         if self.timer > 0:
-            print("Shoot is on cooldown!")
             self.timer -= dt
             return
 
@@ -52,7 +53,6 @@ class Player(CircleShape):
         forward = pygame.Vector2(0, 1).rotate(self.rotation)
         shot = Shot(self.position.x, self.position.y)
         shot.velocity = forward * PLAYER_SHOOT_SPEED
-        print("SHOT!")
 
     def update(self, dt):
         keys = pygame.key.get_pressed()
